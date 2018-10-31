@@ -1,0 +1,71 @@
+LineageOS 修改库
+===========
+
+Getting started
+
+----------------
+下载repo工具
+```
+sudo curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo -o /usr/bin/repo
+sudo chmod +x /usr/bin/repo
+
+vim ~/.bashrc
+export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
+```
+
+---------------
+使用华坤本地镜像库
+```
+repo init -u http://192.168.0.161:10086/LineageOS/android.git -b lineage-15.1 
+```
+同步开发环境代码库
+```
+repo sync -j2
+```
+
+编译环境
+ubuntu 16.04及以上
+
+```
+sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev -y
+```
+
+ubuntu 16.04以下
+```
+libwxgtk3.0-dev → libwxgtk2.8-dev
+```
+
+设置CCache环境
+```
+vim ~/.bashrc
+##export CCACHE_DIR=<cache_dir>
+export USE_CCACHE=1
+
+
+ccache -M 50G
+#ccache 缓存大小根据实际调整加速c二次编译速度
+```
+
+编译环境设置
+```
+export LC_ALL=C 
+export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx8G"
+#JACK 内存根据实际情况调整 建议4G以上
+
+#源码目录执行以下
+source build/envsetup.sh
+breakfast chiron
+```
+
+
+
+启动编译
+```
+croot
+brunch chrion
+
+```
+
+
+
+说明 chrion 为小米mix2的设备代号
