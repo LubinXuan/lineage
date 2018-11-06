@@ -5,4 +5,7 @@
     <project name="LineageOS/android_device_xiaomi_msm8998-common" path="device/xiaomi/msm8998-common"/>
     <project name="LineageOS/android_kernel_xiaomi_msm8998" path="kernel/xiaomi/msm8998"/>
     <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings"/>
+    
+    
+    <project name="LineageOS/android_device_generic_emulatorx86" path="device/generic/emulatorx86" revision="cm-14.1"/>
 </manifest>
